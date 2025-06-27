@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { GraduationCap } from 'lucide-react';
+import { GraduationCap, Building2 } from 'lucide-react';
 
 interface TimelineItemProps {
   title: string;
@@ -8,57 +8,61 @@ interface TimelineItemProps {
   period: string;
   points?: string[];
   gpa?: string;
+  isEducation?: boolean;
 }
 
-const TimelineItem = ({ title, company, period, points, gpa }: TimelineItemProps) => {
+const TimelineItem = ({ title, company, period, points, gpa, isEducation = false }: TimelineItemProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  // Get company/school initial for logo placeholder
+  const getInitial = (name: string) => {
+    return name.charAt(0).toUpperCase();
+  };
+
   return (
-    <div className="relative flex items-start mb-8 ml-8">
+    <div className="relative flex items-start mb-8">
       {/* Timeline dot */}
-      <div className="absolute -left-8 top-6 w-3 h-3 bg-gray-500 rounded-full border-2 border-gray-900 z-10"></div>
+      <div className="absolute left-0 top-6 w-3 h-3 bg-gray-400 rounded-full border-2 border-gray-900 z-10"></div>
       
-      {/* Card - Fixed width and height */}
-      <div className="w-full max-w-2xl min-h-[200px] bg-gray-800 rounded-lg p-6 shadow-lg ml-6">
-        {/* Header with logo and period */}
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center">
-            <div className="w-6 h-6 bg-gradient-to-br from-purple-500/30 to-blue-500/30 rounded flex items-center justify-center mr-3">
-              <GraduationCap size={14} className="text-purple-400" />
+      {/* Card */}
+      <div className="w-full max-w-4xl min-h-[200px] bg-gray-800/50 rounded-lg p-6 shadow-lg ml-8 border border-gray-700/50">
+        {/* Header with logo, title, company and period */}
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex items-start space-x-4">
+            {/* Company/School Logo Placeholder */}
+            <div className="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+              <span className="text-purple-400 font-bold text-lg">
+                {getInitial(company)}
+              </span>
             </div>
-            <div>
-              <h3 className="text-lg font-bold text-white">{title}</h3>
-              <h4 className="text-purple-400 font-semibold">{company}</h4>
+            
+            <div className="flex-1">
+              <h3 className="text-xl font-bold text-white mb-1">{title}</h3>
+              <h4 className="text-purple-400 font-semibold text-lg">{company}</h4>
             </div>
           </div>
-          <span className="text-gray-400 font-medium text-sm">{period}</span>
+          
+          <span className="text-gray-400 font-medium text-sm whitespace-nowrap ml-4">{period}</span>
         </div>
         
         {gpa && (
-          <p className="text-gray-400 text-sm mb-4">GPA: {gpa}</p>
+          <div className="mb-4">
+            <span className="inline-block bg-purple-600/20 text-purple-300 px-3 py-1 rounded-full text-sm font-medium">
+              GPA: {gpa}
+            </span>
+          </div>
         )}
         
-        {points && (
-          <div className="flex-1">
-            <div className={`transition-all duration-300 ${isExpanded ? 'max-h-96' : 'max-h-20'} overflow-hidden`}>
-              <ul className="space-y-2">
-                {points.map((point, index) => (
-                  <li key={index} className="text-gray-300 text-sm flex items-start">
-                    <span className="text-purple-400 mr-3 mt-1 text-xs">•</span>
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            {points.length > 2 && (
-              <button 
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="text-purple-400 text-sm mt-3 hover:text-purple-300 transition-colors"
-              >
-                {isExpanded ? 'Show less' : 'Show more'}
-              </button>
-            )}
+        {points && points.length > 0 && (
+          <div className="space-y-3">
+            <ul className="space-y-2">
+              {points.map((point, index) => (
+                <li key={index} className="text-gray-300 text-sm flex items-start">
+                  <span className="text-purple-400 mr-3 mt-1.5 text-xs flex-shrink-0">•</span>
+                  <span className="leading-relaxed">{point}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
       </div>

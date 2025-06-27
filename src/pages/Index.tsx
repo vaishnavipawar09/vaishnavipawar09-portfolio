@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Mail, Github, Linkedin, Download, Send } from 'lucide-react';
 import Navigation from '../components/Navigation';
@@ -105,9 +106,9 @@ const Index = () => {
       <section id="experience" data-section className={`py-20 px-4 ${getSectionClass('experience')}`}>
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-purple-400">Work Experience</h2>
-          <div className="relative pl-8">
+          <div className="relative">
             {/* Vertical Timeline Line */}
-            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-600"></div>
+            <div className="absolute left-1.5 top-0 bottom-0 w-0.5 bg-gray-600"></div>
             
             {workExperience.map((job) => (
               <TimelineItem
@@ -126,9 +127,9 @@ const Index = () => {
       <section id="education" data-section className={`py-20 px-4 bg-gray-800/50 ${getSectionClass('education')}`}>
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-purple-400">Education</h2>
-          <div className="relative pl-8">
+          <div className="relative">
             {/* Vertical Timeline Line */}
-            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-600"></div>
+            <div className="absolute left-1.5 top-0 bottom-0 w-0.5 bg-gray-600"></div>
             
             {education.map((edu) => (
               <TimelineItem
@@ -137,6 +138,7 @@ const Index = () => {
                 company={edu.school}
                 period={edu.period}
                 gpa={edu.gpa}
+                isEducation={true}
               />
             ))}
           </div>
@@ -165,24 +167,11 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-purple-400">Skills</h2>
           {Object.entries(skills).map(([category, skillList]) => (
-            <div key={category} className="mb-8">
-              <h3 className="text-xl font-semibold text-purple-300 mb-4 text-center">{category}</h3>
-              <div className="flex flex-wrap justify-center gap-3">
+            <div key={category} className="mb-12">
+              <h3 className="text-xl font-semibold text-purple-300 mb-6 text-center">{category}</h3>
+              <div className="flex flex-wrap justify-center gap-4">
                 {skillList.map((skill) => (
-                  <div key={skill} className="flex flex-col items-center p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-300">
-                    <div className="text-lg mb-1">
-                      {/* Using simple emoji icons for compactness */}
-                      {skill === 'Python' && '🐍'}
-                      {skill === 'JavaScript' && '⚡'}
-                      {skill === 'Java' && '☕'}
-                      {skill === 'React' && '⚛️'}
-                      {skill === 'Node.js' && '🟢'}
-                      {skill === 'AWS' && '☁️'}
-                      {skill === 'Docker' && '🐳'}
-                      {!['Python', 'JavaScript', 'Java', 'React', 'Node.js', 'AWS', 'Docker'].includes(skill) && '🔧'}
-                    </div>
-                    <span className="text-xs text-gray-300 text-center">{skill}</span>
-                  </div>
+                  <SkillIcon key={skill} skill={skill} />
                 ))}
               </div>
             </div>

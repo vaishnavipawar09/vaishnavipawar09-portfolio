@@ -22,18 +22,32 @@ const SkillIcon = ({ skill }: SkillIconProps) => {
       Docker: "🐳",
       Kubernetes: "⚓",
       Git: "📚",
-      Linux: "🐧"
+      Linux: "🐧",
+      PHP: "🔧",
+      "Tailwind CSS": "🎨",
+      Bootstrap: "📱",
+      "HTML/CSS": "🌐",
+      Firebase: "🔥",
+      GCP: "☁️",
+      Terraform: "🏗️",
+      Jenkins: "🔧",
+      Jupyter: "📓",
+      Eclipse: "🌑",
+      Postman: "📮",
+      JIRA: "📋",
+      Tableau: "📊",
+      "Linux/Unix": "🐧"
     };
     
     return iconMap[skillName] || "🔧";
   };
 
   return (
-    <div className="flex flex-col items-center p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-300 group">
-      <div className="text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">
+    <div className="flex flex-col items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-300 group w-24 h-24">
+      <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">
         {getSkillIcon(skill)}
       </div>
-      <span className="text-sm text-gray-300 text-center">{skill}</span>
+      <span className="text-xs text-gray-300 text-center leading-tight">{skill}</span>
     </div>
   );
 };
