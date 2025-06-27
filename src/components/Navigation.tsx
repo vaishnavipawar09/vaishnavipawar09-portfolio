@@ -42,21 +42,23 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 right-0 z-50 bg-gray-900/90 backdrop-blur-sm p-4 m-4 rounded-lg shadow-lg">
-      <div className="flex flex-col space-y-2">
-        {navItems.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => scrollToSection(item.id)}
-            className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
-              activeSection === item.id
-                ? 'bg-purple-600 text-white'
-                : 'text-gray-300 hover:text-white hover:bg-gray-700'
-            }`}
-          >
-            {item.label}
-          </button>
-        ))}
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900/90 backdrop-blur-sm border-b border-gray-800">
+      <div className="max-w-6xl mx-auto px-4 py-4">
+        <div className="flex justify-center space-x-8">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
+                activeSection === item.id
+                  ? 'bg-purple-600 text-white'
+                  : 'text-gray-300 hover:text-white hover:bg-gray-700'
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
       </div>
     </nav>
   );

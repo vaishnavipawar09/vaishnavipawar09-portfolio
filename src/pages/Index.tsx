@@ -5,6 +5,7 @@ import Navigation from '../components/Navigation';
 import TypewriterEffect from '../components/TypewriterEffect';
 import ProjectCard from '../components/ProjectCard';
 import SkillIcon from '../components/SkillIcon';
+import TimelineItem from '../components/TimelineItem';
 import { personalInfo, workExperience, education, achievements, skills, publications } from '../data/content';
 import { projects, projectCategories, categoryFilters } from '../data/projects';
 
@@ -41,36 +42,50 @@ const Index = () => {
     return visibleSections.has(sectionId) ? 'animate-fade-in' : 'opacity-0';
   };
 
+  const updatedPersonalInfo = {
+    ...personalInfo,
+    bio: "I am a results-driven Software Engineer with 2+ years of hands-on experience building scalable products in cloud, DevOps, and data. I hold a Master's in Computer Science from Indiana University Bloomington and am passionate about solving real-world problems with code. As the first female engineer in my family, I'm also an anime/drama enthusiast and always eager to learn something new."
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       <Navigation />
 
       {/* Hero Section */}
-      <section id="hero" data-section className={`min-h-screen flex items-center justify-center px-4 ${getSectionClass('hero')}`}>
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="mb-8">
-            <div className="w-48 h-48 mx-auto mb-8 bg-gradient-to-br from-purple-500/30 to-pink-500/30 rounded-full flex items-center justify-center">
-              <span className="text-gray-400">Profile Image Placeholder</span>
+      <section id="hero" data-section className={`min-h-screen flex items-center justify-center px-4 pt-20 ${getSectionClass('hero')}`}>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left side - Text content */}
+            <div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                Hi, I'm <span className="text-purple-400">Vaishnavi Pawar</span>
+              </h1>
+              
+              <div className="text-xl md:text-2xl text-gray-300 mb-6 h-8">
+                <TypewriterEffect texts={personalInfo.titles} />
+              </div>
+              
+              <blockquote className="text-lg text-purple-300 italic mb-6">
+                "{personalInfo.quote}"
+              </blockquote>
+              
+              <div className="max-w-xl">
+                <p className="text-gray-300 leading-relaxed">
+                  {updatedPersonalInfo.bio}
+                </p>
+              </div>
+            </div>
+            
+            {/* Right side - Profile image placeholder */}
+            <div className="flex justify-center">
+              <div className="w-80 h-80 bg-gradient-to-br from-purple-500/30 to-pink-500/30 rounded-full flex items-center justify-center">
+                <span className="text-gray-400 text-center">Profile Image<br />Placeholder</span>
+              </div>
             </div>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-4">
-            Hi, I'm <span className="text-purple-400">Vaishnavi Pawar</span>
-          </h1>
-          
-          <div className="text-2xl md:text-3xl text-gray-300 mb-6 h-12">
-            <TypewriterEffect texts={personalInfo.titles} />
-          </div>
-          
-          <blockquote className="text-lg md:text-xl text-purple-300 italic mb-8 max-w-2xl mx-auto">
-            "{personalInfo.quote}"
-          </blockquote>
-          
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            {personalInfo.bio}
-          </p>
-          
-          <div className="flex justify-center space-x-6 mt-8">
+          {/* Social icons row */}
+          <div className="flex justify-start space-x-6 mt-12">
             <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" 
                className="p-3 bg-purple-600 rounded-full hover:bg-purple-700 transition-colors duration-300">
               <Linkedin size={24} />
@@ -89,27 +104,21 @@ const Index = () => {
 
       {/* Work Experience */}
       <section id="experience" data-section className={`py-20 px-4 ${getSectionClass('experience')}`}>
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-purple-400">Work Experience</h2>
-          <div className="space-y-8">
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-700"></div>
+            
             {workExperience.map((job, index) => (
-              <div key={job.id} className="bg-gray-800 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold text-white">{job.title}</h3>
-                    <h4 className="text-xl text-purple-400">{job.company}</h4>
-                  </div>
-                  <span className="text-gray-400 font-medium">{job.period}</span>
-                </div>
-                <ul className="space-y-3">
-                  {job.points.map((point, pointIndex) => (
-                    <li key={pointIndex} className="text-gray-300 flex items-start">
-                      <span className="text-purple-400 mr-3 mt-1">•</span>
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <TimelineItem
+                key={job.id}
+                title={job.title}
+                company={job.company}
+                period={job.period}
+                points={job.points}
+                isLeft={index % 2 === 0}
+              />
             ))}
           </div>
         </div>
@@ -117,23 +126,21 @@ const Index = () => {
 
       {/* Education */}
       <section id="education" data-section className={`py-20 px-4 bg-gray-800/50 ${getSectionClass('education')}`}>
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-purple-400">Education</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {education.map((edu) => (
-              <div key={edu.id} className="bg-gray-800 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500/30 to-blue-500/30 rounded-lg mb-4 flex items-center justify-center">
-                    <span className="text-xs text-gray-400">Logo</span>
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">{edu.degree}</h3>
-                <h4 className="text-lg text-purple-400 mb-2">{edu.school}</h4>
-                <div className="flex justify-between text-gray-400">
-                  <span>{edu.period}</span>
-                  <span className="font-semibold">GPA: {edu.gpa}</span>
-                </div>
-              </div>
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-700"></div>
+            
+            {education.map((edu, index) => (
+              <TimelineItem
+                key={edu.id}
+                title={edu.degree}
+                company={edu.school}
+                period={edu.period}
+                gpa={edu.gpa}
+                isLeft={index % 2 === 0}
+              />
             ))}
           </div>
         </div>
@@ -141,14 +148,17 @@ const Index = () => {
 
       {/* Achievements */}
       <section id="achievements" data-section className={`py-20 px-4 ${getSectionClass('achievements')}`}>
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-purple-400">Achievements & Highlights</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {achievements.map((achievement, index) => (
-              <div key={index} className="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <p className="text-gray-300">{achievement}</p>
-              </div>
-            ))}
+          <div className="bg-gray-800 rounded-lg p-8 shadow-lg">
+            <ul className="space-y-4">
+              {achievements.map((achievement, index) => (
+                <li key={index} className="text-gray-300 flex items-start">
+                  <span className="text-purple-400 mr-3 mt-1">•</span>
+                  <span>{achievement}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -158,11 +168,24 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-purple-400">Skills</h2>
           {Object.entries(skills).map(([category, skillList]) => (
-            <div key={category} className="mb-12">
-              <h3 className="text-2xl font-semibold text-purple-300 mb-6 text-center">{category}</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <div key={category} className="mb-8">
+              <h3 className="text-xl font-semibold text-purple-300 mb-4 text-center">{category}</h3>
+              <div className="flex flex-wrap justify-center gap-3">
                 {skillList.map((skill) => (
-                  <SkillIcon key={skill} skill={skill} />
+                  <div key={skill} className="flex flex-col items-center p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+                    <div className="text-lg mb-1">
+                      {/* Using simple emoji icons for compactness */}
+                      {skill === 'Python' && '🐍'}
+                      {skill === 'JavaScript' && '⚡'}
+                      {skill === 'Java' && '☕'}
+                      {skill === 'React' && '⚛️'}
+                      {skill === 'Node.js' && '🟢'}
+                      {skill === 'AWS' && '☁️'}
+                      {skill === 'Docker' && '🐳'}
+                      {!['Python', 'JavaScript', 'Java', 'React', 'Node.js', 'AWS', 'Docker'].includes(skill) && '🔧'}
+                    </div>
+                    <span className="text-xs text-gray-300 text-center">{skill}</span>
+                  </div>
                 ))}
               </div>
             </div>
