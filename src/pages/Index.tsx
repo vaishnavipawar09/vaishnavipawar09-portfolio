@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Mail, Github, Linkedin, Download, Send } from 'lucide-react';
 import Navigation from '../components/Navigation';
@@ -104,20 +103,19 @@ const Index = () => {
 
       {/* Work Experience */}
       <section id="experience" data-section className={`py-20 px-4 ${getSectionClass('experience')}`}>
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-purple-400">Work Experience</h2>
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-700"></div>
+          <div className="relative pl-8">
+            {/* Vertical Timeline Line */}
+            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-600"></div>
             
-            {workExperience.map((job, index) => (
+            {workExperience.map((job) => (
               <TimelineItem
                 key={job.id}
                 title={job.title}
                 company={job.company}
                 period={job.period}
                 points={job.points}
-                isLeft={index % 2 === 0}
               />
             ))}
           </div>
@@ -126,20 +124,19 @@ const Index = () => {
 
       {/* Education */}
       <section id="education" data-section className={`py-20 px-4 bg-gray-800/50 ${getSectionClass('education')}`}>
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-purple-400">Education</h2>
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-700"></div>
+          <div className="relative pl-8">
+            {/* Vertical Timeline Line */}
+            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-600"></div>
             
-            {education.map((edu, index) => (
+            {education.map((edu) => (
               <TimelineItem
                 key={edu.id}
                 title={edu.degree}
                 company={edu.school}
                 period={edu.period}
                 gpa={edu.gpa}
-                isLeft={index % 2 === 0}
               />
             ))}
           </div>
