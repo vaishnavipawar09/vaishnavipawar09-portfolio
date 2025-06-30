@@ -12,7 +12,7 @@ const Navigation = () => {
     { id: 'skills', label: 'Skills' },
     { id: 'projects', label: 'Projects' },
     { id: 'publications', label: 'Publications' },
-    { id: 'volunteering', label: 'Volunteering & Languages' },
+    { id: 'volunteering', label: 'Extra-Curricular' },
     { id: 'contact', label: 'Contact' }
   ];
 

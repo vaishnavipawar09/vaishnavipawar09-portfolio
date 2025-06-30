@@ -8,9 +8,18 @@ interface ProjectCardProps {
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <div className="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in">
-      <div className="h-32 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-lg mb-4 flex items-center justify-center">
-        <span className="text-gray-400 text-sm">Project Image Placeholder</span>
-      </div>
+      
+    {project.image ? (
+  <img
+    src={project.image}
+    alt={project.name + " image"}
+    className="w-full h-48 object-cover rounded-lg mb-4"
+  />
+) : (
+  <div className="h-32 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-lg mb-4 flex items-center justify-center">
+    <span className="text-gray-400 text-sm">Project Image Placeholder</span>
+  </div>
+)}
       
       <h3 className="text-xl font-bold text-white mb-2">{project.name}</h3>
       <p className="text-gray-300 mb-4">{project.overview}</p>
@@ -40,13 +49,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         <p className="text-sm text-gray-300">{project.role}</p>
       </div>
 
-      {project.team && (
-        <div className="mb-4">
-          <h4 className="text-sm font-semibold text-purple-400 mb-1">Team:</h4>
-          <p className="text-sm text-gray-300">{project.team}</p>
-        </div>
-      )}
-      
+           
       <div className="flex flex-wrap gap-2">
         {Object.entries(project.links).map(([type, url]) => (
           <a

@@ -9,10 +9,12 @@ interface TimelineItemProps {
   points?: string[];
   gpa?: string;
   isEducation?: boolean;
+  logo?: string;
 }
 
-const TimelineItem = ({ title, company, period, points, gpa, isEducation = false }: TimelineItemProps) => {
+const TimelineItem = ({ title, company, period, points, gpa, isEducation = false, logo }: TimelineItemProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  console.log("Logo for", title, "is", logo);
 
   // Get company/school initial for logo placeholder
   const getInitial = (name: string) => {
@@ -30,12 +32,25 @@ const TimelineItem = ({ title, company, period, points, gpa, isEducation = false
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-start space-x-4">
             {/* Company/School Logo Placeholder */}
-            <div className="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-              <span className="text-purple-400 font-bold text-lg">
-                {getInitial(company)}
-              </span>
-            </div>
-            
+           <div className="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1 overflow-hidden">
+  {company === "Indiana University Bloomington"
+    ? <img src="/logos/iulogo.jpeg" alt="IU Logo" className=" object-contain" />
+    : company === "Kaizen Envirotech Industries"
+    ? <img src="/logos/kaizenlogo.png" alt="Kaizen Logo" className=" object-contain" />
+    : company === "Sparks Foundation"
+    ? <img src="/logos/sparks.jpeg" alt="Sparks Logo" className="object-contain" />
+    : company === "Indiana University Bloomington, USA"
+    ? <img src="/logos/iulogo.jpeg" alt="IU Logo" className="object-contain" />
+    : company === "University of Pune, India" 
+    ? <img src="/logos/pune.jpeg" alt="Pune University Logo" className="object-contain" />
+    : company === "Loyola High School and Jr. College, Pashan, Pune" 
+    ? <img src="/logos/loyola.jpeg" alt="Loyola Logo" className="object-contain" />
+    : company === "Mar Ivanios Convent High School, Pune" 
+    ? <img src="/logos/mar.png" alt="Mar Ivanios Logo" className="object-contain" />
+    : null
+  }
+</div>
+
             <div className="flex-1">
               <h3 className="text-xl font-bold text-white mb-1">{title}</h3>
               <h4 className="text-purple-400 font-semibold text-lg">{company}</h4>

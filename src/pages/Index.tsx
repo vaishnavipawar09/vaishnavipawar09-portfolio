@@ -78,10 +78,15 @@ const Index = () => {
             
             {/* Right side - Profile image placeholder */}
             <div className="flex justify-center">
-              <div className="w-80 h-80 bg-gradient-to-br from-purple-500/30 to-pink-500/30 rounded-full flex items-center justify-center">
-                <span className="text-gray-400 text-center">Profile Image<br />Placeholder</span>
-              </div>
-            </div>
+  <div className="w-80 h-80 bg-gradient-to-br from-purple-500/30 to-pink-500/30 rounded-full flex items-center justify-center overflow-hidden">
+    <img
+      src="/logos/profile.jpeg"
+      alt="Vaishnavi Pawar"
+      className="w-full h-full object-cover rounded-full"
+    />
+  </div>
+</div>
+
           </div>
           
           {/* Social icons row */}
@@ -240,24 +245,38 @@ const Index = () => {
           <h2 className="text-4xl font-bold text-center mb-16 text-purple-400">Volunteering & Languages</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-gray-800 rounded-lg p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-white mb-6">Volunteering Experience</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">Volunteering</h3>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-purple-500/30 to-blue-500/30 rounded-lg flex items-center justify-center">
-                    <span className="text-xs text-gray-400">Logo</span>
+                    <img src="/logos/tedx.jpeg" alt="TEDxDYPIT logo"  className="object-contain" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-purple-300">TEDx PR Volunteer</h4>
-                    <p className="text-gray-400">Event coordination and public relations</p>
+                    <h4 className="text-lg font-semibold text-purple-300">TEDxDYPIT</h4>
+                    <p className="text-white">Event Operations Head</p>
+                    <p className="text-gray-400 text-sm">Jan 2019 - Jan 2022</p>
+
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-purple-500/30 to-blue-500/30 rounded-lg flex items-center justify-center">
-                    <span className="text-xs text-gray-400">Logo</span>
+                    <img src="/logos/itsa.png" alt="ITSA logo"  className="object-contain" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-purple-300">HelpAge India Volunteer</h4>
-                    <p className="text-gray-400">Community service and elderly care support</p>
+                    <h4 className="text-lg font-semibold text-purple-300">Head of Public Relations</h4>
+                    <p className="text-white">Information Technology Students Association, DIT, Pune</p>
+                    <p className="text-gray-400 text-sm">Jan 2019 - Jan 2022</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500/30 to-blue-500/30 rounded-lg flex items-center justify-center">
+                    <img src="/logos/helpage.jpeg" alt="HelpAge logo"  className="object-contain" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-purple-300">HelpAge India</h4>
+                    <p className="text-white">Student Volunteer</p>
+                    <p className="text-gray-400 text-sm">Jan 2012 – Jan 2016</p>
+
                   </div>
                 </div>
               </div>
@@ -268,7 +287,11 @@ const Index = () => {
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
                   <span className="text-lg text-gray-300">English</span>
-                  <span className="text-purple-400 font-semibold">Native</span>
+                  <span className="text-purple-400 font-semibold">Professional</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-lg text-gray-300">German</span>
+                  <span className="text-purple-400 font-semibold">Beginner</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-lg text-gray-300">Hindi</span>
@@ -278,6 +301,10 @@ const Index = () => {
                   <span className="text-lg text-gray-300">Marathi</span>
                   <span className="text-purple-400 font-semibold">Native</span>
                 </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-lg text-gray-300">Konkani</span>
+                  <span className="text-purple-400 font-semibold">Native</span>
+                </div>                
               </div>
             </div>
           </div>
@@ -312,10 +339,11 @@ const Index = () => {
                   <Github size={24} />
                   <span>GitHub Profile</span>
                 </a>
-                <button className="flex items-center space-x-4 text-gray-300 hover:text-purple-400 transition-colors duration-300">
+                <a href="https://drive.google.com/file/d/1jsmCUhEGTV19Vh9dRu-FLB5-ivFdxG30/view"
+  target="_blank" className="flex items-center space-x-4 text-gray-300 hover:text-purple-400 transition-colors duration-300">
                   <Download size={24} />
                   <span>Download Resume</span>
-                </button>
+                </a>
               </div>
             </div>
             
@@ -350,14 +378,19 @@ const Index = () => {
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-6">
             <div className="w-16 h-16 mx-auto bg-gradient-to-br from-purple-500/30 to-pink-500/30 rounded-full flex items-center justify-center mb-4">
-              <span className="text-2xl">🌟</span>
+              <img
+  src="logos/animal-whale.gif"
+  alt="Fun footer gif"
+  className="w-22 h-22 object-contain"
+/>
+
             </div>
           </div>
           <p className="text-lg text-gray-300 mb-4">
             Stay awesome! Thanks for stopping by! Let's connect and grow together.
           </p>
           <p className="text-gray-500 text-sm">
-            © 2024 Vaishnavi Pawar. Built with React, TypeScript, and Tailwind CSS.
+            © 2024 Vaishnavi Pawar. All Rights Reserved. Built with React, TypeScript, and Tailwind CSS.
           </p>
         </div>
       </footer>
