@@ -44,7 +44,7 @@ const Index = () => {
 
   const updatedPersonalInfo = {
     ...personalInfo,
-    bio: "Results-oriented Software Engineer with 2+ years of experience building scalable cloud, DevOps, and data solutions. I hold a Master’s in Computer Science from Indiana University Bloomington and love turning ideas into impactful results. My motto is to use technology responsibly and give back to people, communities, and the environment. I’m passionate about solving real-world problems, continuous learning, and building software that empowers teams and shapes a better future."
+    bio: "Results-oriented Software Engineer with 2+ years of experience in cloud, DevOps, and data. Master’s in Computer Science from Indiana University Bloomington. I thrive on solving real-world problems and believe in using technology responsibly to give back to people, communities, and the environment. Passionate about continuous learning and building solutions that make a difference."
   };
 
   return (
