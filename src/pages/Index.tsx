@@ -44,7 +44,7 @@ const Index = () => {
 
   const updatedPersonalInfo = {
     ...personalInfo,
-    bio: "I am a results-driven Software Engineer with 2+ years of hands-on experience building scalable products in cloud, DevOps, and data. I hold a Master's in Computer Science from Indiana University Bloomington and am passionate about solving real-world problems with code. As the first female engineer in my family, I'm also an anime/drama enthusiast and always eager to learn something new."
+    bio: "Results-oriented Software Engineer with 2+ years of experience designing and implementing robust, scalable products across cloud, DevOps, and data domains. I hold a Master’s in Computer Science from Indiana University Bloomington and thrive on transforming innovative ideas into impactful solutions. I’m driven by the challenge of solving real-world problems and love building software that improves performance and empowers teams. My motto is to use technology responsibly and give back to people, communities, and the environment. I believe in continuous learning, mentoring others, and always keeping the bigger picture in mind. For me, the true reward is building for real people and shaping a better future through my work."
   };
 
   return (
