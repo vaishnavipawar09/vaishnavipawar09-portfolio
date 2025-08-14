@@ -24,7 +24,7 @@ export const workExperience = [
   },
   {
     id: 2,
-    logo: "/logos/oleilabs_logo.jpg",
+    logo: "public/logos/oleilabs_logo.jpg",
     title: "Software Developer",
     company: "Olei Labs",
     period: "June 2025- Present",
