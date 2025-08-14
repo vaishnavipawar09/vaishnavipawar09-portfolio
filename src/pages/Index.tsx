@@ -14,6 +14,28 @@ const Index = () => {
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
 
+  // NEW: form status and handler
+const [formStatus, setFormStatus] = useState<'idle'|'sending'|'sent'|'error'>('idle');
+
+async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  e.preventDefault();
+  setFormStatus('sending');
+
+  const data = Object.fromEntries(new FormData(e.currentTarget) as any);
+
+  try {
+    const res = await fetch('https://formspree.io/f/XXXXABCD', { // ← your Formspree endpoint
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    setFormStatus(res.ok ? 'sent' : 'error');
+    if (res.ok) e.currentTarget.reset();
+  } catch {
+    setFormStatus('error');
+  }
+}
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -347,7 +369,7 @@ const Index = () => {
               </div>
             </div>
             
-            <form className="space-y-6"
+            <form className="space-y-6" onSubmit={handleSubmit}
                   action="https://formspree.io/f/meozdzkl"  // <-- paste your endpoint
                   method="POST"
             >
@@ -372,8 +394,19 @@ const Index = () => {
               <button type="submit" 
                       className="w-full bg-purple-600 text-white py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors duration-300 flex items-center justify-center space-x-2">
                 <Send size={20} />
-                <span>Send Message</span>
+                <span>{formStatus === 'sending' ? 'Sending…' : 'Send Message'}</span> {/* NEW: button changes while sending */}
               </button>
+              {/* NEW: feedback messages */}
+              {formStatus === 'sent' && (
+                <p className="text-green-400 text-sm mt-2">
+                  Thanks! Your message has been sent to my inbox.
+                </p>
+              )}
+              {formStatus === 'error' && (
+                <p className="text-red-400 text-sm mt-2">
+                  Oops! Something went wrong. Please try again.
+                </p>
+              )}
             </form>
           </div>
         </div>
