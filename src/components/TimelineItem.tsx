@@ -35,6 +35,10 @@ const TimelineItem = ({ title, company, period, points, gpa, isEducation = false
            <div className="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1 overflow-hidden">
   {company === "Indiana University Bloomington"
     ? <img src="/logos/iulogo.jpeg" alt="IU Logo" className=" object-contain" />
+    : company === "Heartland Community Network"
+    ? <img src="/logos/hcn_logo.jpg" alt="HCN Logo" className="object-contain" />
+    : company === "Olei Labs"
+    ? <img src="public/logos/oleilabs_logo.jpg" alt="Olei Logo" className="object-contain" />
     : company === "Kaizen Envirotech Industries"
     ? <img src="/logos/kaizenlogo.png" alt="Kaizen Logo" className=" object-contain" />
     : company === "Sparks Foundation"
