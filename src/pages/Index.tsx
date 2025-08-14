@@ -347,7 +347,13 @@ const Index = () => {
               </div>
             </div>
             
-            <form className="space-y-6">
+            <form className="space-y-6"
+                  action="https://formspree.io/f/meozdzkl"  // <-- paste your endpoint
+                  method="POST"
+            >
+              {/* optional: email subject + simple spam trap */}
+              <input type="hidden" name="_subject" value="New message from portfolio" />
+              <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">Name</label>
                 <input type="text" id="name" name="name" 
