@@ -12,7 +12,7 @@ export const personalInfo = {
 export const workExperience = [
   {
     id: 1,
-    logo: "/logos/iulogo.jpeg",
+    logo: "/logos/hcn_logo.jpg",
     title: "Software Engineer",
     company: "Heartland Community Network",
     period: "June 2025- Present",
@@ -24,7 +24,7 @@ export const workExperience = [
   },
   {
     id: 2,
-    logo: "/logos/iulogo.jpeg",
+    logo: "/logos/oleilabs_logo.jpg",
     title: "Software Developer",
     company: "Olei Labs",
     period: "June 2025- Present",
@@ -38,7 +38,7 @@ export const workExperience = [
     logo: "/logos/iulogo.jpeg",
     title: "Teaching Assistant & Computer Science Tutor",
     company: "Indiana University Bloomington",
-    period: "Aug 2024 – Present",
+    period: "Aug 2024 – May 2025",
     points: [
      "𝗧𝘂𝘁𝗼𝗿𝗲𝗱 𝟭𝟬𝟬+ 𝘀𝘁𝘂𝗱𝗲𝗻𝘁𝘀 in 𝗖𝗼𝗺𝗽𝘂𝘁𝗲𝗿 𝗦𝗰𝗶𝗲𝗻𝗰𝗲 𝗮𝗻𝗱 𝗠𝗮𝘁𝗵𝗲𝗺𝗮𝘁𝗶𝗰𝘀, helping them grasp complex concepts and improve problem-solving skills.",
 "Provided 𝗼𝗻𝗲-𝗼𝗻-𝗼𝗻𝗲 𝗮𝗻𝗱 𝗴𝗿𝗼𝘂𝗽 𝘁𝘂𝘁𝗼𝗿𝗶𝗻𝗴 𝘀𝗲𝘀𝘀𝗶𝗼𝗻𝘀 for courses including: 𝘾𝙤𝙢𝙥𝙪𝙩𝙚𝙧 𝙎𝙘𝙞𝙚𝙣𝙘𝙚: Data Structures, Algorithms, Object-Oriented Programming (Java, Python, C++) and 𝙈𝙖𝙩𝙝𝙚𝙢𝙖𝙩𝙞𝙘𝙨: Calculus (M119, M211), Linear Algebra, Discrete Math, Finite Mathematics, Probability  & Statistics.",
