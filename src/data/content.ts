@@ -13,12 +13,35 @@ export const workExperience = [
   {
     id: 1,
     logo: "/logos/iulogo.jpeg",
+    title: "Software Engineer",
+    company: "Heartland Community Network",
+    period: "June 2025- Present",
+    points: [
+     " Spearheaded the development of a cloud-hosted auction inventory platform on AWS using Lambda, API Gateway, RDS,and S3, ensuring 100% stock validation before listings.",
+" Integrated QR workflows via REST APIs, Amazon SQS, and Amazon SNS, syncing 750+ real-time updates.",
+" Configured AWS CloudWatch and CloudTrail audit logs, enhancing security and enabling full compliance tracking.",
+    ]
+  },
+  {
+    id: 2,
+    logo: "/logos/iulogo.jpeg",
+    title: "Software Developer",
+    company: "Olei Labs",
+    period: "June 2025- Present",
+    points: [
+     " Constructed and validated timesheet workflows using React, TailwindCSS, and Supabase, resolving 12+ critical logic flaws to cut approval errors by 80% before launch.",
+"Deployed an Overview Dashboard with Supabase RLS and role-based access (RBAC), handling 150+ weekly approvals.",
+    ]
+  },
+  {
+    id: 3,
+    logo: "/logos/iulogo.jpeg",
     title: "Teaching Assistant & Computer Science Tutor",
     company: "Indiana University Bloomington",
     period: "Aug 2024 – Present",
     points: [
      "𝗧𝘂𝘁𝗼𝗿𝗲𝗱 𝟭𝟬𝟬+ 𝘀𝘁𝘂𝗱𝗲𝗻𝘁𝘀 in 𝗖𝗼𝗺𝗽𝘂𝘁𝗲𝗿 𝗦𝗰𝗶𝗲𝗻𝗰𝗲 𝗮𝗻𝗱 𝗠𝗮𝘁𝗵𝗲𝗺𝗮𝘁𝗶𝗰𝘀, helping them grasp complex concepts and improve problem-solving skills.",
-"Provided 𝗼𝗻𝗲-𝗼𝗻-𝗼𝗻𝗲 𝗮𝗻𝗱 𝗴𝗿𝗼𝘂𝗽 𝘁𝘂𝘁𝗼𝗿𝗶𝗻𝗴 𝘀𝗲𝘀𝘀𝗶𝗼𝗻𝘀 for courses including: 𝘾𝙤𝙢𝙥𝙪𝙩𝙚𝙧 𝙎𝙘𝙞𝙚𝙣𝙘𝙚: Data Structures, Algorithms, Object-Oriented Programming (Java, Python, C++) and 𝙈𝙖𝙩𝙝𝙚𝙢𝙖𝙩𝙞𝙘𝙨: Calculus (M119, M211), Linear Algebra, Discrete Math, Finite Mathematics, Probability  & Statistics",
+"Provided 𝗼𝗻𝗲-𝗼𝗻-𝗼𝗻𝗲 𝗮𝗻𝗱 𝗴𝗿𝗼𝘂𝗽 𝘁𝘂𝘁𝗼𝗿𝗶𝗻𝗴 𝘀𝗲𝘀𝘀𝗶𝗼𝗻𝘀 for courses including: 𝘾𝙤𝙢𝙥𝙪𝙩𝙚𝙧 𝙎𝙘𝙞𝙚𝙣𝙘𝙚: Data Structures, Algorithms, Object-Oriented Programming (Java, Python, C++) and 𝙈𝙖𝙩𝙝𝙚𝙢𝙖𝙩𝙞𝙘𝙨: Calculus (M119, M211), Linear Algebra, Discrete Math, Finite Mathematics, Probability  & Statistics.",
 "Designed 𝘀𝘁𝗲𝗽-𝗯𝘆-𝘀𝘁𝗲𝗽 𝗲𝘅𝗽𝗹𝗮𝗻𝗮𝘁𝗶𝗼𝗻𝘀 for complex coding problems, improving students' algorithmic thinking and debugging skills.",
 "Assisted students with 𝗵𝗮𝗻𝗱𝘀-𝗼𝗻 𝗰𝗼𝗱𝗶𝗻𝗴 𝗲𝘅𝗲𝗿𝗰𝗶𝘀𝗲𝘀, debugging, and logic-building for programming assignments and projects.",
 "Conducted 𝗲𝘅𝗮𝗺 𝗿𝗲𝘃𝗶𝗲𝘄 𝘀𝗲𝘀𝘀𝗶𝗼𝗻𝘀 and created practice problems to reinforce key mathematical and computational concepts.",
@@ -27,7 +50,7 @@ export const workExperience = [
     ]
   },
   {
-    id: 2,
+    id: 4,
     logo: "/logos/kaizenlogo.png",
     title: "Software Engineer",
     company: "Kaizen Envirotech Industries",
@@ -42,7 +65,7 @@ export const workExperience = [
     ]
   },
   {
-    id: 3,
+    id: 5,
     logo: "/logos/kaizen.png",
     title: "Frontend Developer",
     company: "Kaizen Envirotech Industries",
@@ -54,7 +77,7 @@ export const workExperience = [
     ]
   },
   {
-    id: 4,
+    id: 6,
     logo: "/logos/sparks.jpeg",
     title: "Full Stack Developer Intern",
     company: "Sparks Foundation",
