@@ -339,7 +339,7 @@ const Index = () => {
                   <Github size={24} />
                   <span>GitHub Profile</span>
                 </a>
-                <a href="https://drive.google.com/file/d/1jsmCUhEGTV19Vh9dRu-FLB5-ivFdxG30/view"
+                <a href="https://drive.google.com/file/d/1F2-G9LnCSUu8Sk0cVBvrNBkmDfkhqbRa/view"
   target="_blank" className="flex items-center space-x-4 text-gray-300 hover:text-purple-400 transition-colors duration-300">
                   <Download size={24} />
                   <span>Download Resume</span>
